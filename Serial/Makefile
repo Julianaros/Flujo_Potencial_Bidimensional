@@ -6,7 +6,7 @@ beam:
 # Ejecutar el archivo binario
 run: beam
 	@echo "Ejecutando el binario ./beam..."
-	time ./beam
+	bash -c "time ./beam"
 
 # Ejecutar el script de Python
 plot:
