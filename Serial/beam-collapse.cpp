@@ -442,7 +442,7 @@ std::string format_reynolds(double reynolds) {
 // Exportar función de corriente (MODIFICADA)
 void export_streamfunction(double reynolds) {
     std::string reynolds_str = format_reynolds(reynolds);
-    std::string filename = "Datos/streamfunction_Re" + reynolds_str + ".dat";
+    std::string filename = "Datos/streamfunction_Re_collapse" + reynolds_str + ".dat";
     std::ofstream file(filename);
     
     if (!file.is_open()) {
@@ -469,7 +469,7 @@ void export_streamfunction(double reynolds) {
 // Exportar vorticidad (MODIFICADA)
 void export_vorticity(double reynolds) {
     std::string reynolds_str = format_reynolds(reynolds);
-    std::string filename = "Datos/vorticity_Re" + reynolds_str + ".dat";
+    std::string filename = "Datos/vorticity_Re_collapse" + reynolds_str + ".dat";
     std::ofstream file(filename);
     
     if (!file.is_open()) {
@@ -496,7 +496,7 @@ void export_vorticity(double reynolds) {
 // Exportar campo de velocidades (MODIFICADA)
 void export_velocity_field(double reynolds) {
     std::string reynolds_str = format_reynolds(reynolds);
-    std::string filename = "Datos/velocity_field_Re" + reynolds_str + ".dat";
+    std::string filename = "Datos/velocity_field_Re_collapse" + reynolds_str + ".dat";
     std::ofstream file(filename);
     
     if (!file.is_open()) {
@@ -600,9 +600,9 @@ int main() {
     for (double re : reynolds_values) {
         std::string re_str = format_reynolds(re);
         std::cout << "  Re = " << re << ":" << std::endl;
-        std::cout << "    - Datos/streamfunction_Re" << re_str << ".dat" << std::endl;
-        std::cout << "    - Datos/vorticity_Re" << re_str << ".dat" << std::endl;
-        std::cout << "    - Datos/velocity_field_Re" << re_str << ".dat" << std::endl;
+        std::cout << "    - Datos/streamfunction_Re_collapse" << re_str << ".dat" << std::endl;
+        std::cout << "    - Datos/vorticity_Re_collapse" << re_str << ".dat" << std::endl;
+        std::cout << "    - Datos/velocity_field_Re_collapse" << re_str << ".dat" << std::endl;
     }
     
     return 0;
