@@ -460,7 +460,7 @@ std::string format_reynolds(double reynolds) {
 // Exportar función de corriente (MODIFICADA)
 void export_streamfunction(double reynolds) {
     std::string reynolds_str = format_reynolds(reynolds);
-    std::string filename = "Datos/streamfunction_Re_collapse" + reynolds_str + ".dat";
+    std::string filename = "Datos/streamfunction_Re_static" + reynolds_str + ".dat";
     std::ofstream file(filename);
     
     if (!file.is_open()) {
@@ -487,7 +487,7 @@ void export_streamfunction(double reynolds) {
 // Exportar vorticidad (MODIFICADA)
 void export_vorticity(double reynolds) {
     std::string reynolds_str = format_reynolds(reynolds);
-    std::string filename = "Datos/vorticity_Re_collapse" + reynolds_str + ".dat";
+    std::string filename = "Datos/vorticity_Re_static" + reynolds_str + ".dat";
     std::ofstream file(filename);
     
     if (!file.is_open()) {
@@ -514,7 +514,7 @@ void export_vorticity(double reynolds) {
 // Exportar campo de velocidades (MODIFICADA)
 void export_velocity_field(double reynolds) {
     std::string reynolds_str = format_reynolds(reynolds);
-    std::string filename = "Datos/velocity_field_Re_collapse" + reynolds_str + ".dat";
+    std::string filename = "Datos/velocity_field_Re_static" + reynolds_str + ".dat";
     std::ofstream file(filename);
     
     if (!file.is_open()) {
