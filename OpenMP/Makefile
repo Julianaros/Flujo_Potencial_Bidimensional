@@ -3,8 +3,8 @@ CXX = g++
 CXXFLAGS = -fopenmp -O2
 
 # Archivos fuente y binarios
-SOURCES = beam-collapse.cpp beam-dynamic.cpp beam-parallel-for.cpp beam-static.cpp
-BINARIES = beam-collapse beam-dynamic beam-parallel-for beam-static
+SOURCES = beam-collapse.cpp beam-dynamic.cpp beam-parallel-for.cpp beam-static.cpp beam-parallel-for-NBS.cpp
+BINARIES = beam-collapse beam-dynamic beam-parallel-for beam-static beam-NBS
 
 # Compilación individual
 beam-collapse: beam-collapse.cpp
@@ -19,6 +19,9 @@ beam-parallel-for: beam-parallel-for.cpp
 beam-static: beam-static.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+beam-static: beam-parallel-for-NBS.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
 # Compilar todos
 build: $(BINARIES)
 	@echo "Todos los binarios han sido compilados."
@@ -30,6 +33,7 @@ run: build
 	@bash -c "time ./beam-dynamic"
 	@bash -c "time ./beam-parallel-for"
 	@bash -c "time ./beam-static"
+	@bash -c "time ./beam-NBS"
 
 # Graficar
 plot:
@@ -38,6 +42,7 @@ plot:
 	python graficar-dynamic.py
 	python graficar_parallelfor.py
 	python graficar-static.py
+	python graficar-NBS.py
 
 # Limpiar carpetas
 clean_dirs:
